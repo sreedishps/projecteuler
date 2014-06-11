@@ -16,4 +16,13 @@ public class MathHelper {
         }
         return true;
     }
+    public static int reverseInt(int i){
+        int j=0;
+        while(i>0){
+            j = (j*10) + (i%10);
+            i = i/10;
+        }
+        return j;
+    }
+
 }
