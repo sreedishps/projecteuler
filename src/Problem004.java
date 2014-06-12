@@ -6,7 +6,7 @@ public class Problem004 {
     public static void main(String[] args) {
         int i = 999;
         int prod=0,largest=0;
-        
+
         while(i>=100){
             int j = 999;
             while(j>=100){
