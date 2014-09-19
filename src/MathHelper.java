@@ -3,6 +3,9 @@
  */
 public class MathHelper {
     public static boolean checkPrime(int i) {
+        if(i < 0){
+            return false;
+        }
         for(int j=(i/2);j>2;j--){
             if(i%j == 0)
                 return false;
