@@ -62,4 +62,23 @@ public class MathHelper {
         }
         return hcf;
     }
+
+    public static int numberOfFactors(int i) {
+        int factors =0;
+        boolean arr[] = MathHelper.primeSieve(i+2);
+        int j =1;
+        while(i > 1){
+            j++;
+            while(!arr[j]){
+                j++;
+            }
+            if(i %j == 0){
+                factors++;
+            }
+            while(i % j == 0){
+                i = i/j;
+            }
+        }
+        return factors;
+    }
 }
