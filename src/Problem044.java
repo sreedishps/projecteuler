@@ -5,33 +5,28 @@ import java.util.HashMap;
  */
 public class Problem044 {
     static HashMap<Integer,Long> hm;
+  private static boolean isPentagonal(int number) {
+    double penTest = (Math.sqrt(1 + 24 * number) + 1.0) / 6.0;
+    return penTest == ((int)penTest);
+  }
     public static void main(String[] args) {
-        hm = new HashMap<Integer, Long>();
-        //index first 10000 pentagon numbers
-        for(int i=1;i<100000;i++){
-            hm.put(i,new Long(i * (3*i -1))/2);
+      int result = 0;
+      boolean notFound = true;
+      int i = 1;
+
+      while (notFound) {
+        i++;
+        int n = i * (3 * i - 1) / 2;
+
+        for (int j = i-1; j > 0; j--) {
+          int m = j * (3 * j - 1) / 2;
+          if (isPentagonal(n - m) && isPentagonal(n + m)) {
+            result = n-m;
+            System.out.println(result);
+            notFound = false;
+            break;
+          }
         }
-
-        //find the pentagon pair for which sum is a pentagon
-        for(int i=1;i<10000;i++){
-            System.out.println(i);
-            for(int j=i+1;j< Math.min((i + 1 + 50), 9999);j++){
-                Long sum = hm.get(i) + hm.get(j) ;
-                Long diff = hm.get(j) - hm.get(i) ;
-
-                if(hm.containsValue(diff)){
-                 // System.out.println(hm.get(i) +"  "+ hm.get(j)+"  "+diff);
-                    if(hm.containsValue(sum)){
-                        System.out.println("found" + hm.get(i) +"  "+ hm.get(j)+"  "+diff);
-                        break;
-                    }
-
-                }
-                if((hm.get(j) - hm.get(j-1)) > hm.get(i) ){
-                   // System.out.println("break "+j);
-                    break;
-                }
-            }
-        }
+      }
     }
 }
