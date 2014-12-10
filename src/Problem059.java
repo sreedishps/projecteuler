@@ -22,7 +22,8 @@ public class Problem059 {
                decipher.append(c);
              }
            }
-            if(decipher.toString().contains("the") && decipher.toString().contains("with") ){
+            if(decipher.toString().contains("the") && decipher.toString().contains("of") && decipher.toString()
+              .contains("with") ){
               System.out.println(decipher.toString());
               System.out.println((char)i +""+  (char)j +""+ (char)k);
               int answer =0;
