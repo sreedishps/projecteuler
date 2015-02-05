@@ -1009,15 +1009,13 @@ public class Problem099 {
         String arr[] = input.split("\n");
 
         int count =0;
-        BigInteger max = new BigInteger("0");
+       Double max = 0.0;
         for(int i=0;i<arr.length;i++){
             String temp[] = arr[i].split(",");
-            BigInteger tempInt = new BigInteger(temp[0]).pow(Integer.parseInt(temp[1]));
-            System.out.println(tempInt);
-            if(max.compareTo(tempInt) == 1){
+            Double tempInt = Double.parseDouble(temp[1]+"") * Math.log(Double.parseDouble(temp[0]+""));
+            if(max < tempInt){
                 max = tempInt;
-                count = i;
-                System.out.println(count);
+                count = i+1;
             }
         }
         System.out.println(count);
