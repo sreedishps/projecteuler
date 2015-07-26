@@ -70,6 +70,15 @@ public class MathHelper {
         return j;
     }
 
+  public static Long reverselong(Long i) {
+          Long j = 0l;
+          while (i > 0) {
+              j = (j * 10) + (i % 10);
+              i = i / 10;
+          }
+          return j;
+      }
+
     public static int HCF(int a, int b) {
         int hcf = 1;
         for (int i = 2; i <= Math.min(a, b); i++) {
