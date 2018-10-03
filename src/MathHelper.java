@@ -6,12 +6,12 @@ import java.util.Arrays;
  */
 public class MathHelper {
 
-  public static int GCD(int a, int b){
-    if (b == 0)
-    return a;
-    else
-    return GCD(b, a % b);
-  }
+    public static int GCD(int a, int b) {
+        if (b == 0)
+            return a;
+        else
+            return GCD(b, a % b);
+    }
 
     public static boolean[] primeSieve(int a) {
         boolean[] arr = new boolean[a];
@@ -70,14 +70,14 @@ public class MathHelper {
         return j;
     }
 
-  public static Long reverselong(Long i) {
-          Long j = 0l;
-          while (i > 0) {
-              j = (j * 10) + (i % 10);
-              i = i / 10;
-          }
-          return j;
-      }
+    public static Long reverselong(Long i) {
+        Long j = 0l;
+        while (i > 0) {
+            j = (j * 10) + (i % 10);
+            i = i / 10;
+        }
+        return j;
+    }
 
     public static int HCF(int a, int b) {
         int hcf = 1;
@@ -177,5 +177,20 @@ public class MathHelper {
 
         }
         return ncr;
+    }
+
+    public static String sortedDigits(Long num) {
+
+        StringBuilder str = new StringBuilder();
+
+        char arr[] = (num + "").toCharArray();
+        for (int i = 0; i < 10; i++) {
+            for (char a : arr) {
+                if (a == i + '0') {
+                    str.append(i);
+                }
+            }
+        }
+        return str.toString();
     }
 }
